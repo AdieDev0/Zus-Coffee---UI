@@ -41,7 +41,7 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="SEARCH..."
-              className="text-xs uppercase border-none outline-none w-20 md:w-full"
+              className="text-sm md:text-xs uppercase border-none outline-none w-20 md:w-full"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
