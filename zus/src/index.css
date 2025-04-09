@@ -4,3 +4,7 @@
 @theme {
   --font-Montserrat: "Montserrat", sans-serif;
 }
+
+@theme {
+  --color-zusPrimary: #2b3a7e;
+}
