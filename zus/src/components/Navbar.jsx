@@ -4,24 +4,34 @@ import { IoSearch } from "react-icons/io5";
 
 const Navbar = () => {
   return (
-    <div className="bg-white font-Montserrat flex justify-between items-center px-40 py-5 shadow-md">
-      <div className="flex gap-5 ">
-        <button className="text-xs font-medium">OUR STORY</button>
-        <button className="text-xs font-medium">MENU</button>
-        <button className="text-xs font-medium">ZUS APP</button>
-        <button className="text-xs font-medium">CAREERS</button>
+    <div className="bg-white font-Montserrat relative flex justify-between items-center px-48 py-8 shadow-md">
+      <div className="flex gap-5 mr-auto">
+        <button className="text-xs font-medium cursor-pointer">
+          OUR STORY
+        </button>
+        <button className="text-xs font-medium cursor-pointer">MENU</button>
+        <button className="text-xs font-medium cursor-pointer">ZUS APP</button>
+        <button className="text-xs font-medium cursor-pointer">CAREERS</button>
       </div>
 
-      <div>
-        <img src={zus} alt="" className="size-14" />
+      <div className="absolute left-1/2 transform -translate-x-1/2">
+        <img src={zus} alt="ZUS logo" className="size-14" />
       </div>
 
       <div className="flex gap-5 items-center">
-        <button className="text-xs font-medium">FIND A STORE</button>
-        <button className="text-xs font-medium">CONTACT US</button>
-        <div className="search-bar flex gap-3 items-center">
-          <IoSearch className="text-zusTet" />
-          <input type="text" placeholder="SEARCH..." className="text-xs" />
+        <button className="text-xs font-medium cursor-pointer">
+          FIND A STORE
+        </button>
+        <button className="text-xs font-medium cursor-pointer">
+          CONTACT US
+        </button>
+        <div className="search-bar flex gap-3 items-center border border-zusPrimary rounded-full px-3 py-2 bg-white">
+          <IoSearch className="text-zusPrimary" />
+          <input
+            type="text"
+            placeholder="SEARCH..."
+            className="text-xs uppercase border-none outline-none"
+          />
         </div>
       </div>
     </div>
