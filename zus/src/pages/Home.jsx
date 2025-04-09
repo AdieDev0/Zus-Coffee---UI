@@ -15,15 +15,18 @@ const Home = () => {
         />
 
         {/* Black Overlay */}
-        <div className="absolute top-0 left-0 w-full h-5/6 bg-black/80 z-10"></div>
+        <div className="absolute top-0 left-0 w-full h-5/6 bg-black/60 z-10"></div>
 
         {/* Centered Text */}
         <div className="relative z-20 flex items-center justify-center h-full">
           <div className="text-center text-white px-4 md:px-8 lg:px-16 xl:px-32">
-            <h1 h1 className="text-white text-4xl font-bold">
+            <h1
+              h1
+              className="text-white text-5xl font-Playfair font-bold w-96 mx-auto"
+            >
               A Daily Essential, Not a Luxury
             </h1>
-            <p className="mt-4 w-96 mx-auto">
+            <p className="mt-8 w-96 mx-auto">
               For many, coffee is part of daily life. Specialty brews, however,
               are often seen as indulgent. We built ZUS Coffee to shift that
               perspective.
