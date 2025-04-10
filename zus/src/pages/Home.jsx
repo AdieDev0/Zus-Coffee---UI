@@ -22,11 +22,11 @@ const Home = () => {
           <div className="text-center text-white px-4 md:px-8 lg:px-16 xl:px-32">
             <h1
               h1
-              className="text-white text-5xl font-Playfair font-bold w-96 mx-auto"
+              className="text-white text-4xl md:text-5xl font-Playfair font-bold w-80 md:w-96 mx-auto"
             >
               A Daily Essential, Not a Luxury
             </h1>
-            <p className="mt-8 w-96 mx-auto">
+            <p className="mt-8 w-80 md:w-96 mx-auto">
               For many, coffee is part of daily life. Specialty brews, however,
               are often seen as indulgent. We built ZUS Coffee to shift that
               perspective.

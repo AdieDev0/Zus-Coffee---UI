@@ -13,14 +13,14 @@ const Navbar = () => {
   return (
     <>
       {/* Main Navbar */}
-      <div className="bg-white font-Montserrat flex justify-between items-center px-4 md:px-12 lg:px-48 py-4 md:py-8 shadow-md">
-        {/* Logo - always on the left */}
-        <div className="flex-shrink-0">
-          <img src={zus} alt="ZUS logo" className="size-10 md:size-14" />
+      <div className="bg-white font-Montserrat flex justify-between items-center px-4 sm:px-8 md:px-12 lg:px-48 py-4 md:py-7 shadow-md relative">
+        {/* Logo - positioned differently based on screen size */}
+        <div className="md:hidden">
+          <img src={zus} alt="ZUS logo" className="size-10" />
         </div>
 
-        {/* Desktop Navigation Links - hidden on mobile */}
-        <div className="hidden lg:flex gap-5 mx-auto">
+        {/* Tablet (md) and Desktop (lg+): Left Links */}
+        <div className="hidden md:flex gap-6 mr-auto">
           <button className="text-xs font-medium cursor-pointer">
             OUR STORY
           </button>
@@ -33,22 +33,15 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Right side elements */}
-        <div className="flex items-center gap-3 md:gap-5">
-          {/* Search bar - always visible */}
-          <div className="search-bar flex gap-1 md:gap-3 items-center border border-zusPrimary rounded-full px-2 md:px-3 py-1 md:py-2 bg-white">
-            <IoSearch className="text-zusPrimary text-sm md:text-base" />
-            <input
-              type="text"
-              placeholder="SEARCH..."
-              className="text-sm md:text-xs uppercase border-none outline-none w-20 md:w-full"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
+        {/* Centered Logo for Tablet and Desktop */}
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
+          <img src={zus} alt="ZUS logo" className="size-12" />
+        </div>
 
-          {/* Desktop right side links - hidden on mobile */}
-          <div className="hidden lg:flex gap-5 items-center">
+        {/* Right Side Elements */}
+        <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
+          {/* Tablet and Desktop Right Links */}
+          <div className="hidden md:flex gap-5 items-center">
             <button className="text-xs font-medium cursor-pointer">
               FIND A STORE
             </button>
@@ -56,10 +49,20 @@ const Navbar = () => {
               CONTACT US
             </button>
           </div>
-
-          {/* Mobile menu button - hidden on desktop */}
+          {/* Search Bar - visible on all screens */}
+          <div className="search-bar flex gap-1 sm:gap-2 md:gap-3 items-center border border-zusPrimary rounded-full px-2 sm:px-3 py-1 sm:py-2 bg-white">
+            <IoSearch className="text-zusPrimary text-sm sm:text-base" />
+            <input
+              type="text"
+              placeholder="SEARCH..."
+              className="text-xs sm:text-sm uppercase border-none outline-none w-20 sm:w-32 md:w-full"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-zusPrimary text-2xl ml-2"
+            className="md:hidden text-zusPrimary text-2xl ml-2"
             onClick={toggleSidebar}
           >
             <IoMenu />
@@ -69,8 +72,7 @@ const Navbar = () => {
 
       {/* Mobile Sidebar */}
       {isSidebarOpen && (
-        <div className="lg:hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
-          {/* Close button */}
+        <div className="md:hidden fixed inset-0 bg-white z-50 p-6 overflow-y-auto">
           <div className="flex justify-end mb-8">
             <button
               onClick={toggleSidebar}
@@ -80,7 +82,6 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Sidebar Navigation Links */}
           <div className="flex flex-col gap-6">
             <button className="text-lg font-medium cursor-pointer text-left">
               OUR STORY
