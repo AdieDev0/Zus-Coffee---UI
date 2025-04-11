@@ -1,9 +1,10 @@
 import React from "react";
 import zus_frappe from "../assets/zus_frappe_2022.mp4";
-
+import phone from "../assets/phone.png";
 const Home = () => {
   return (
     <>
+      {/* UPPER PAGE */}
       <div className="relative h-screen w-full overflow-hidden">
         {/* Background Video */}
         <video
@@ -28,6 +29,25 @@ const Home = () => {
               are often seen as indulgent. We built ZUS Coffee to shift that
               perspective.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* MABUHAY PH */}
+      <div>
+        <div>
+          <div>
+            <h1>Mabuhay, Philippines!</h1>
+            <p>
+              ZUS Coffee is excited to serve you specialty coffee crafted with
+              passion. We believe everyone deserves premium coffee without the
+              premium price tag. Ready na ba for the ultimate kape experience?
+              Tara, let’s brew something special!
+            </p>
+            <button>Our Story</button>
+          </div>
+          <div>
+            <img src={phone} alt="" />
           </div>
         </div>
       </div>
