@@ -34,9 +34,9 @@ const Home = () => {
       </div>
 
       {/* MABUHAY PH */}
-      <div>
-        <div>
-          <div>
+      <div className="px-60">
+        <div className="flex justify-between items-center">
+          <div className="w-96 text-center">
             <h1>Mabuhay, Philippines!</h1>
             <p>
               ZUS Coffee is excited to serve you specialty coffee crafted with
@@ -47,7 +47,7 @@ const Home = () => {
             <button>Our Story</button>
           </div>
           <div>
-            <img src={phone} alt="" />
+            <img src={phone} alt="" className="w-120" />
           </div>
         </div>
       </div>
