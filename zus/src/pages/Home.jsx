@@ -40,13 +40,15 @@ const Home = () => {
             <h1 className="font-Playfair text-zusPrimary font-extrabold text-4xl mb-5">
               Mabuhay, Philippines!
             </h1>
-            <p>
+            <p className="text-lg mb-5 font-Montserrat">
               ZUS Coffee is excited to serve you specialty coffee crafted with
               passion. We believe everyone deserves premium coffee without the
               premium price tag. Ready na ba for the ultimate kape experience?
               Tara, let’s brew something special!
             </p>
-            <button>Our Story</button>
+            <button className="bg-zusPrimary px-8 py-1 rounded-full text-white font-extrabold font-Montserrat cursor-pointer">
+              Our Story
+            </button>
           </div>
           <div>
             <img src={phone} alt="" className="w-120" />
