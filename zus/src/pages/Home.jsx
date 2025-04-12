@@ -46,7 +46,7 @@ const Home = () => {
               premium price tag. Ready na ba for the ultimate kape experience?
               Tara, let’s brew something special!
             </p>
-            <button className="bg-zusPrimary px-8 py-1 rounded-full text-white font-extrabold font-Montserrat cursor-pointer">
+            <button className="bg-zusPrimary hover:bg-orange-200 duration-200 px-8 py-1 rounded-full text-white font-extrabold font-Montserrat cursor-pointer">
               Our Story
             </button>
           </div>
