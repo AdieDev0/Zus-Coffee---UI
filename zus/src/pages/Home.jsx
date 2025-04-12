@@ -34,7 +34,7 @@ const Home = () => {
       </div>
 
       {/* MABUHAY PH */}
-      <div className="px-60">
+      <div className="px-60 pb-20">
         <div className="flex justify-between items-center">
           <div className="w-120 text-center">
             <h1 className="font-Playfair text-zusPrimary font-extrabold text-4xl mb-5">
