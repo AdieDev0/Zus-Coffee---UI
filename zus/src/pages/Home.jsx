@@ -36,8 +36,10 @@ const Home = () => {
       {/* MABUHAY PH */}
       <div className="px-60">
         <div className="flex justify-between items-center">
-          <div className="w-96 text-center">
-            <h1>Mabuhay, Philippines!</h1>
+          <div className="w-120 text-center">
+            <h1 className="font-Playfair text-zusPrimary font-extrabold text-4xl mb-5">
+              Mabuhay, Philippines!
+            </h1>
             <p>
               ZUS Coffee is excited to serve you specialty coffee crafted with
               passion. We believe everyone deserves premium coffee without the
