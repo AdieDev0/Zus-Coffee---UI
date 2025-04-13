@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="bg-white font-Montserrat flex justify-between items-center px-4 sm:px-8 md:px-12 lg:px-48 py-4 md:py-7 shadow-md relative">
         {/* Logo - positioned differently based on screen size */}
         <div className="md:hidden">
-          <img src={zus} alt="ZUS logo" className="size-10" />
+          <img src={zus} alt="ZUS logo" className="size-10 curso-pointer" />
         </div>
 
         {/* Tablet (md) and Desktop (lg+): Left Links */}
@@ -35,7 +35,7 @@ const Navbar = () => {
 
         {/* Centered Logo for Tablet and Desktop */}
         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
-          <img src={zus} alt="ZUS logo" className="size-12" />
+          <img src={zus} alt="ZUS logo" className="size-12 cursor-pointer" />
         </div>
 
         {/* Right Side Elements */}
