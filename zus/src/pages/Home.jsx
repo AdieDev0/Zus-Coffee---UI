@@ -140,12 +140,12 @@ const Home = () => {
         {flavorMenu.map((item, index) => (
           <div
             key={index}
-            className="min-w-[250px] md:min-w-[300px] bg-blue-50 rounded-2xl px-6 py-8 flex-shrink-0 shadow-md"
+            className="min-w-[250px] md:min-w-[300px] h-96 bg-blue-50 rounded-2xl px-6 py-8 flex-shrink-0 shadow-md relative"
           >
             <img
               src={item.img}
               alt={item.name}
-              className="w-24 h-24 mx-auto mb-4 object-contain"
+              className="w-40 mx-auto mb-4 object-contain absolute bottom-20 left-16"
               draggable="false"
             />
             <p className="text-center text-xl md:text-2xl text-zusPrimary font-extrabold">
