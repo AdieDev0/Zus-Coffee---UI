@@ -178,7 +178,7 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-20">
         <button className="bg-zusPrimary hover:bg-orange-200 duration-200 px-8 py-2 rounded-full text-white font-extrabold font-Montserrat cursor-pointer">
           Discover More
         </button>
