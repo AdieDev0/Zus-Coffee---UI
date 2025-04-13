@@ -121,44 +121,45 @@ const Home = () => {
 
       {/* DRAGGABLE SCROLL FLAVOR MENU - FIXED IMPLEMENTATION */}
       <div
-        ref={ref}
-        {...events}
-        className="flex gap-5 overflow-x-auto cursor-grab active:cursor-grabbing px-6 pb-14"
-        style={{
-          userSelect: "none",
-          scrollbarWidth: "none" /* Firefox */,
-          msOverflowStyle: "none" /* IE/Edge */,
-        }}
-      >
-        {/* Hide scrollbar for Webkit browsers (Chrome, Safari) */}
-        <style jsx>{`
-          div::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
+  ref={ref}
+  {...events}
+  className="flex gap-5 overflow-x-auto cursor-grab active:cursor-grabbing px-6 pb-14"
+  style={{
+    userSelect: "none",
+    scrollbarWidth: "none",
+    msOverflowStyle: "none",
+  }}
+>
+  <style jsx>{`
+    div::-webkit-scrollbar {
+      display: none;
+    }
+  `}</style>
 
-        {flavorMenu.map((item, index) => (
-          <div
-            key={index}
-            className="min-w-[250px] md:min-w-[300px] h-96 bg-blue-50 rounded-2xl px-6 py-8 flex-shrink-0 shadow-md relative"
-          >
-            <img
-              src={item.img}
-              alt={item.name}
-              className="w-40 mx-auto mb-4 object-contain absolute bottom-20 left-16"
-              draggable="false"
-            />
-            <p className="text-center text-xl md:text-2xl text-zusPrimary font-extrabold">
-              {item.name}
-            </p>
-            <hr className="h-px my-4 bg-gray-200 border-0" />
-            <div className="flex justify-between text-sm md:text-base font-Montserrat px-2">
-              <span>{item.type}</span>
-              <span>{item.temp}</span>
-            </div>
-          </div>
-        ))}
+  {flavorMenu.map((item, index) => (
+    <div
+      key={index}
+      className="min-w-[250px] md:min-w-[300px] h-96 bg-blue-50 rounded-2xl px-6 py-8 flex-shrink-0 shadow-md relative"
+    >
+      {item.img && (
+        <img
+          src={item.img}
+          alt={item.name}
+          className="w-40 mx-auto mb-4 object-contain absolute bottom-20 left-1/2 transform -translate-x-1/2"
+          draggable="false"
+        />
+      )}
+      <p className="text-center text-xl md:text-2xl text-zusPrimary font-extrabold">
+        {item.name}
+      </p>
+      <hr className="h-px my-4 bg-gray-200 border-0" />
+      <div className="flex justify-between text-sm md:text-base font-Montserrat px-2">
+        <span>{item.type || "Coffee"}</span>
+        <span>{item.temp || "Hot/Ice"}</span>
       </div>
+    </div>
+  ))}
+</div>
     </>
   );
 };
