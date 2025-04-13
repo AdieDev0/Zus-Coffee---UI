@@ -106,6 +106,20 @@ const Home = () => {
             lifestyle, we’ve got the perfect brew for you.
           </p>
         </div>
+
+        {/* DRAGGABLE SCROLL FLAVOR MENU */}
+        <div className="flex gap-5 items-center overflow-x-auto">
+          {FlavorMenu.map((item, index) => (
+            <div key={index} className="">
+              <img src={item.img} alt="" />
+              <p className="text-center">{item.name}</p>
+              <div className="flex justify-between items-center">
+                <h1>{item.type}</h1>
+                <h1>{item.temp}</h1>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
