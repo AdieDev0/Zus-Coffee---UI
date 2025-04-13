@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDraggable } from "react-use-draggable-scroll";
 import zus_frappe from "../assets/zus_frappe_2022.mp4";
 import phone from "../assets/phone.png";
@@ -10,9 +10,7 @@ import RandomDesign from "../assets/menu/Untitled-design-1.png";
 
 const Home = () => {
   const ref = useRef();
-  const { events } = useDraggable(ref, {
-    applyRubberBandEffect: true, // Adds smooth resistance when dragging
-  });
+  const { events } = useDraggable(ref);
 
   // Array of menu items
   const flavorMenu = [
@@ -48,11 +46,36 @@ const Home = () => {
     },
   ];
 
+  // Tripling the array for better loop illusion
+  const infiniteFlavorMenu = [...flavorMenu, ...flavorMenu, ...flavorMenu];
+
+  useEffect(() => {
+    const container = ref.current;
+    if (!container) return;
+
+    const totalWidth = container.scrollWidth;
+    const visibleWidth = container.offsetWidth;
+    const sectionWidth = totalWidth / 3;
+
+    // Set initial scroll to the middle section
+    container.scrollLeft = sectionWidth;
+
+    const handleScroll = () => {
+      if (container.scrollLeft <= 0) {
+        container.scrollLeft = sectionWidth;
+      } else if (container.scrollLeft + visibleWidth >= totalWidth) {
+        container.scrollLeft = sectionWidth - visibleWidth;
+      }
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       {/* UPPER PAGE */}
       <div className="relative h-screen w-full overflow-hidden">
-        {/* Background Video */}
         <video
           className="absolute top-0 left-0 w-full h-5/6 object-cover"
           src={zus_frappe}
@@ -60,11 +83,7 @@ const Home = () => {
           loop
           muted
         />
-
-        {/* Black Overlay */}
         <div className="absolute top-0 left-0 w-full h-5/6 bg-black/60 z-10"></div>
-
-        {/* Centered Text */}
         <div className="relative z-20 flex items-center justify-center h-full">
           <div className="text-center text-white px-4 md:px-8 lg:px-16 xl:px-32">
             <h1 className="text-white text-4xl md:text-5xl font-Playfair font-bold w-80 md:w-96 mx-auto">
@@ -119,47 +138,45 @@ const Home = () => {
         </div>
       </div>
 
-      {/* DRAGGABLE SCROLL FLAVOR MENU - FIXED IMPLEMENTATION */}
+      {/* DRAGGABLE SCROLL FLAVOR MENU */}
       <div
-  ref={ref}
-  {...events}
-  className="flex gap-5 overflow-x-auto cursor-grab active:cursor-grabbing px-6 pb-14"
-  style={{
-    userSelect: "none",
-    scrollbarWidth: "none",
-    msOverflowStyle: "none",
-  }}
->
-  <style jsx>{`
-    div::-webkit-scrollbar {
-      display: none;
-    }
-  `}</style>
+        ref={ref}
+        {...events}
+        className="flex gap-5 overflow-x-auto cursor-grab active:cursor-grabbing px-6 pb-14"
+        style={{
+          userSelect: "none",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+      >
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
 
-  {flavorMenu.map((item, index) => (
-    <div
-      key={index}
-      className="min-w-[250px] md:min-w-[300px] h-96 bg-blue-50 rounded-2xl px-6 py-8 flex-shrink-0 shadow-md relative"
-    >
-      {item.img && (
-        <img
-          src={item.img}
-          alt={item.name}
-          className="w-40 mx-auto mb-4 object-contain absolute bottom-20 left-1/2 transform -translate-x-1/2"
-          draggable="false"
-        />
-      )}
-      <p className="text-center text-xl md:text-2xl text-zusPrimary font-extrabold">
-        {item.name}
-      </p>
-      <hr className="h-px my-4 bg-gray-200 border-0" />
-      <div className="flex justify-between text-sm md:text-base font-Montserrat px-2">
-        <span>{item.type || "Coffee"}</span>
-        <span>{item.temp || "Hot/Ice"}</span>
+        {infiniteFlavorMenu.map((item, index) => (
+          <div
+            key={index}
+            className="min-w-[250px] md:min-w-[300px] mt-60 pt-20 bg-blue-50 rounded-2xl px-6 py-8 flex-shrink-0 shadow-md relative"
+          >
+            <img
+              src={item.img}
+              alt={item.name}
+              className="w-40 mx-auto object-contain absolute bottom-16 left-16 mb-20"
+              draggable="false"
+            />
+            <p className="text-center text-xl md:text-2xl text-zusPrimary font-extrabold">
+              {item.name}
+            </p>
+            <hr className="h-px my-4 bg-gray-200 border-0" />
+            <div className="flex justify-between text-sm md:text-base font-Montserrat px-2">
+              <span>{item.type}</span>
+              <span>{item.temp}</span>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-  ))}
-</div>
     </>
   );
 };
