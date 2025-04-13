@@ -34,24 +34,24 @@ const Home = () => {
       </div>
 
       {/* MABUHAY PH */}
-      <div className="px-60 pb-20">
-        <div className="flex justify-between items-center">
-          <div className="w-120 text-center">
-            <h1 className="font-Playfair text-zusPrimary font-extrabold text-4xl mb-5">
+      <div className="px-6 md:px-20 lg:px-40 xl:px-60 pb-20">
+        <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-10">
+          <div className="w-full lg:w-1/2 text-center lg:text-left">
+            <h1 className="font-Playfair text-zusPrimary font-extrabold text-3xl md:text-4xl mb-5">
               Mabuhay, Philippines!
             </h1>
-            <p className="text-lg mb-5 font-Montserrat">
+            <p className="text-base md:text-lg mb-5 font-Montserrat">
               ZUS Coffee is excited to serve you specialty coffee crafted with
               passion. We believe everyone deserves premium coffee without the
               premium price tag. Ready na ba for the ultimate kape experience?
               Tara, let’s brew something special!
             </p>
-            <button className="bg-zusPrimary hover:bg-orange-200 duration-200 px-8 py-1 rounded-full text-white font-extrabold font-Montserrat cursor-pointer">
+            <button className="bg-zusPrimary hover:bg-orange-200 duration-200 px-8 py-2 rounded-full text-white font-extrabold font-Montserrat cursor-pointer">
               Our Story
             </button>
           </div>
-          <div>
-            <img src={phone} alt="" className="w-120" />
+          <div className="w-full lg:w-1/2 flex justify-center">
+            <img src={phone} alt="" className="w-3/4 md:w-2/3 lg:w-full" />
           </div>
         </div>
       </div>
