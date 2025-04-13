@@ -57,10 +57,12 @@ const Home = () => {
       </div>
 
       {/* A Brew To Beat The Blues */}
-      <div>
-        <div>
-          <h1>A Brew To Beat The Blues</h1>
-          <p>
+      <div className="px-40 pb-20">
+        <div className="text-center">
+          <h1 className="font-Playfair font-extrabold text-zusPrimary text-4xl mb-5">
+            A Brew To Beat The Blues
+          </h1>
+          <p className="font-Montserrat font-semibold">
             Power up your day with ZUS Coffee. No matter your taste or
             lifestyle, we’ve got the perfect brew for you.
           </p>
