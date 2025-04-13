@@ -1,4 +1,5 @@
-import React from "react";
+import { useRef } from "react";
+import { useDraggable } from "react-use-draggable-scroll";
 import zus_frappe from "../assets/zus_frappe_2022.mp4";
 import phone from "../assets/phone.png";
 import BerryCheesecake from "../assets/menu/Berry-Cheesecake.png";
@@ -8,8 +9,13 @@ import SpanishLatte from "../assets/menu/spanish_latte.png";
 import RandomDesign from "../assets/menu/Untitled-design-1.png";
 
 const Home = () => {
+  const ref = useRef();
+  const { events } = useDraggable(ref, {
+    applyRubberBandEffect: true, // Adds smooth resistance when dragging
+  });
+
   // Array of menu items
-  const FlavorMenu = [
+  const flavorMenu = [
     {
       img: ceoLatte,
       name: "CEO Latte",
@@ -41,6 +47,7 @@ const Home = () => {
       temp: "Ice",
     },
   ];
+
   return (
     <>
       {/* UPPER PAGE */}
@@ -59,7 +66,7 @@ const Home = () => {
 
         {/* Centered Text */}
         <div className="relative z-20 flex items-center justify-center h-full">
-          <div className="text-center text-white px-4 md:px-8 lg:px-16 xl:px-32 ">
+          <div className="text-center text-white px-4 md:px-8 lg:px-16 xl:px-32">
             <h1 className="text-white text-4xl md:text-5xl font-Playfair font-bold w-80 md:w-96 mx-auto">
               A Daily Essential, Not a Luxury
             </h1>
@@ -83,43 +90,74 @@ const Home = () => {
               ZUS Coffee is excited to serve you specialty coffee crafted with
               passion. We believe everyone deserves premium coffee without the
               premium price tag. Ready na ba for the ultimate kape experience?
-              Tara, let’s brew something special!
+              Tara, let's brew something special!
             </p>
             <button className="bg-zusPrimary hover:bg-orange-200 duration-200 px-8 py-2 rounded-full text-white font-extrabold font-Montserrat cursor-pointer">
               Our Story
             </button>
           </div>
           <div className="w-full lg:w-1/2 flex justify-center">
-            <img src={phone} alt="" className="w-3/4 md:w-2/3 lg:w-full" />
+            <img
+              src={phone}
+              alt="ZUS Coffee App"
+              className="w-3/4 md:w-2/3 lg:w-full"
+            />
           </div>
         </div>
       </div>
 
       {/* A Brew To Beat The Blues */}
-      <div className="px-40 pb-20">
+      <div className="px-6 md:px-20 lg:px-40 xl:px-60 pb-10">
         <div className="text-center">
           <h1 className="font-Playfair font-extrabold text-zusPrimary text-4xl mb-5">
             A Brew To Beat The Blues
           </h1>
           <p className="font-Montserrat font-semibold">
             Power up your day with ZUS Coffee. No matter your taste or
-            lifestyle, we’ve got the perfect brew for you.
+            lifestyle, we've got the perfect brew for you.
           </p>
         </div>
+      </div>
 
-        {/* DRAGGABLE SCROLL FLAVOR MENU */}
-        <div className="flex gap-5 items-center overflow-x-auto">
-          {FlavorMenu.map((item, index) => (
-            <div key={index} className="">
-              <img src={item.img} alt="" />
-              <p className="text-center">{item.name}</p>
-              <div className="flex justify-between items-center">
-                <h1>{item.type}</h1>
-                <h1>{item.temp}</h1>
-              </div>
+      {/* DRAGGABLE SCROLL FLAVOR MENU - FIXED IMPLEMENTATION */}
+      <div
+        ref={ref}
+        {...events}
+        className="flex gap-5 overflow-x-auto cursor-grab active:cursor-grabbing px-6 pb-14"
+        style={{
+          userSelect: "none",
+          scrollbarWidth: "none" /* Firefox */,
+          msOverflowStyle: "none" /* IE/Edge */,
+        }}
+      >
+        {/* Hide scrollbar for Webkit browsers (Chrome, Safari) */}
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
+
+        {flavorMenu.map((item, index) => (
+          <div
+            key={index}
+            className="min-w-[250px] md:min-w-[300px] bg-blue-50 rounded-2xl px-6 py-8 flex-shrink-0 shadow-md"
+          >
+            <img
+              src={item.img}
+              alt={item.name}
+              className="w-24 h-24 mx-auto mb-4 object-contain"
+              draggable="false"
+            />
+            <p className="text-center text-xl md:text-2xl text-zusPrimary font-extrabold">
+              {item.name}
+            </p>
+            <hr className="h-px my-4 bg-gray-200 border-0" />
+            <div className="flex justify-between text-sm md:text-base font-Montserrat px-2">
+              <span>{item.type}</span>
+              <span>{item.temp}</span>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </>
   );
