@@ -1,7 +1,46 @@
 import React from "react";
 import zus_frappe from "../assets/zus_frappe_2022.mp4";
 import phone from "../assets/phone.png";
+import BerryCheesecake from "../assets/menu/Berry-Cheesecake.png";
+import ceoLatte from "../assets/menu/ceo_latte.png";
+import IrishCream from "../assets/menu/Irish-Cream.png";
+import SpanishLatte from "../assets/menu/spanish_latte.png";
+import RandomDesign from "../assets/menu/Untitled-design-1.png";
+
 const Home = () => {
+  // Array of menu items
+  const FlavorMenu = [
+    {
+      img: ceoLatte,
+      name: "CEO Latte",
+      type: "",
+      temp: "Hot",
+    },
+    {
+      img: SpanishLatte,
+      name: "Spanish Latte",
+      type: "",
+      temp: "Ice/Hot",
+    },
+    {
+      img: BerryCheesecake,
+      name: "Berry Cheesecake",
+      type: "Frappes",
+      temp: "Ice",
+    },
+    {
+      img: IrishCream,
+      name: "Irish Cream",
+      type: "Frappes",
+      temp: "Ice",
+    },
+    {
+      img: RandomDesign,
+      name: "Triple Java Jelly",
+      type: "",
+      temp: "Ice",
+    },
+  ];
   return (
     <>
       {/* UPPER PAGE */}
