@@ -177,6 +177,12 @@ const Home = () => {
           </div>
         ))}
       </div>
+
+      <div className="flex justify-center">
+        <button className="bg-zusPrimary hover:bg-orange-200 duration-200 px-8 py-2 rounded-full text-white font-extrabold font-Montserrat cursor-pointer">
+          Our Story
+        </button>
+      </div>
     </>
   );
 };
